@@ -7,7 +7,7 @@ module.exports = class event extends events {
 		super(...args);
 	}
 	/**
-	 * @param {Client.default} client
+	 * @param {Client} client
 	 */
 	run = async (client, info) => {
 		console.log(info);
