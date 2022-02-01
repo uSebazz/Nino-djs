@@ -1,0 +1,237 @@
+const {
+	Message,
+	MessageEmbed,
+	MessageButton,
+	MessageActionRow,
+	MessageAttachment,
+} = require('discord.js');
+const command = require('../../Data/Structures/Commands');
+
+module.exports = class NinoCommands extends command {
+	constructor(client) {
+		super(client, {
+			name: 'snipe',
+			description: ['Show last message delete', 'Muestra el ultimo mensaje borrado'],
+			aliases: [],
+			usage: ['snipe (amount)', 'snipe (cantidad)'],
+			example: ['snipe 10', 'snipe 4'],
+			userPerms: [],
+			botPerms: [],
+			category: 'Misc',
+			cooldown: 0,
+			nsfw: false,
+			vote: false,
+			devs: false,
+			enable: true,
+		});
+	}
+	/**
+	 * @param { Message } message
+	 * @param { String[] } args
+	 */
+	async run(message, args, lang) {
+		/**
+		 * @type {import('../../data/structures/ClientInit')}
+		 */
+		const client = this.client;
+		let i0 = 0;
+		let i1 = 10;
+		let page = 1;
+		let paginas = `#${page}`;
+
+		let channel;
+		if (message.mentions.channels.first()) {
+			channel = message.mentions.channels.first();
+		} else if (!channel) {
+			channel = message.channel;
+		}
+		if (!channel.permissionsFor(client.user.id).has('VIEW_CHANNEL'))
+			return message.reply({
+				content: client._lang.__mf(
+					{ phrase: 'misc.snipe.view', locale: lang.lang },
+					{
+						emoji: client._emotes.fail,
+					}
+				),
+			});
+		const snipes = client._snipes.get(channel.id);
+		if (!snipes)
+			return message.reply({
+				content: client._lang.__mf(
+					{
+						phrase: 'misc.snipe.no',
+						locale: lang.lang,
+					},
+					{
+						emoji: client._emotes.fail,
+					}
+				),
+			});
+
+		const snipe = +args[0] - 1 || 0;
+		const target = snipes[snipe];
+		if (!target)
+			return message.reply({
+				content: client._lang.__mf(
+					{
+						phrase: 'misc.snipe.no2',
+						locale: lang.lang,
+					},
+					{
+						emoji: client._emotes.fail,
+						snipes: snipes.length,
+					}
+				),
+			});
+		const { content, author, embeds, attachments, createdAt, msg } = target;
+
+		const button = new MessageButton()
+			.setCustomId('1')
+			.setStyle('SECONDARY')
+			.setEmoji(client._emotes.arrow2);
+
+		const button2 = new MessageButton()
+			.setCustomId('2')
+			.setStyle('SECONDARY')
+			.setEmoji(client._emotes.arrow);
+
+		const button3 = new MessageButton()
+			.setCustomId('3')
+			.setStyle('SECONDARY')
+			.setEmoji(client._emotes.fail);
+
+		const embed = new MessageEmbed()
+			.setAuthor({
+				name: author,
+				iconURL: msg.author.displayAvatarURL({ dynamic: true }),
+			})
+			.setColor(client._colors.Invisible)
+			.setFooter({
+				text: `${client._lang.__mf(
+					{ phrase: 'misc.snipe.page', locale: lang.lang },
+					{
+						page: paginas,
+					}
+				)}`,
+			});
+		if (content) embed.setDescription(content);
+		if (attachments.length) embed.setImage(attachments[0]);
+
+		const msgcomponent = await message.reply({
+			embeds: [embed],
+			components: [
+				new MessageActionRow().addComponents([
+					button.setDisabled(true),
+					button3.setDisabled(false),
+					button2.setDisabled(false),
+				]),
+			],
+		});
+
+		const col = await msgcomponent.createMessageComponentCollector({
+			filter: (int) => {
+				if (int.user.id === message.author.id) return true;
+				int.reply({
+					content: client._lang.__mf(
+						{
+							phrase: 'interactions.buttons.collector',
+							locale: lang.lang,
+						},
+						{
+							user: message.author.tag,
+						}
+					),
+					ephemeral: true,
+				});
+				return false;
+			},
+			idle: 50000,
+		});
+
+		col.on('collect', async (i) => {
+			i.deferUpdate();
+			switch (i.customId) {
+				case '1': {
+					i0 = i0 - 10;
+					i1 = i1 - 10;
+					page = page - 1;
+
+					if (i1 > 10) {
+						await msgcomponent.edit({
+							embeds: [embed],
+							components: [
+								new MessageActionRow().addComponents([
+									button3.setDisabled(false),
+									button2.setDisabled(false),
+								]),
+							],
+						});
+					} else {
+						let description = content.slice(i0, i1);
+						let paginas = `#${page}`;
+						embed.setDescription(description).setFooter({
+							text: `${client._lang.__mf(
+								{ phrase: 'misc.snipe.page', locale: lang.lang },
+								{
+									page: paginas,
+								}
+							)}`,
+						});
+						await msgcomponent.edit({
+							embeds: [embed],
+							components: [
+								new MessageActionRow().addComponents([
+									button.setDisabled(false),
+									button3.setDisabled(false),
+									button2.setDisabled(false),
+								]),
+							],
+						});
+					}
+					break;
+				}
+				case '2': {
+					i0 = i0 + 10;
+					i1 = i1 + 10;
+					page = page + 1;
+					if (i1 > target + 10) {
+						await msgcomponent.edit({
+							embeds: [embed],
+							components: [
+								new MessageActionRow().addComponents([
+									button3.setDisabled(false),
+									button.setDisabled(false),
+								]),
+							],
+						});
+					} else {
+						let paginas = `#${page}`;
+						embed.setFooter({
+							text: `${client._lang.__mf(
+								{ phrase: 'misc.snipe.page', locale: lang.lang },
+								{
+									page: paginas,
+								}
+							)}`,
+						});
+						await msgcomponent.edit({
+							embeds: [embed],
+							components: [
+								new MessageActionRow().addComponents([
+									button.setDisabled(false),
+									button3.setDisabled(false),
+									button2.setDisabled(false),
+								]),
+							],
+						});
+					}
+					break;
+				}
+				case '3': {
+					await msgcomponent.delete();
+					break;
+				}
+			}
+		});
+	}
+};

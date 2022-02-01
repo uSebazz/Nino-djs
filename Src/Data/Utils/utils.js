@@ -1,0 +1,40 @@
+module.exports = class utils {
+	emotes = {
+		eval: '<:Categories:915969225938583562>',
+		check: '<:Check_Mark:924321938715856951>',
+		fail: '<:Fail_Cross:924321864912875560>',
+		info: '<:Emergency:925219674038341642> ',
+		pending: '<:pending:925219711430565949> ',
+		default: '<:default:925219826081869844> ',
+		wave: '<a:wave_animated:924769654336020480>',
+		kannapregunta: '<:KannaPregunta:925012556773470218>',
+		flecha: '<a:ds_flecha:873242406328340590>',
+		nsfw: '<:nsfw:905217904872665088>',
+		clock: '<a:watchtime:913461421508026378>',
+		arrow: '<:Arrow:926815007310745620>',
+		arrow2: '<:Arrow2:926814935407788082>',
+		music: '<:music:928352277956268112>',
+		burrito: '<a:ninoBurritoa:928652463379185714>',
+		hmm: '<:NinoHmm:916849319074742343>',
+		llave: '<:Bots:925793656189911131>',
+		grapes: '<a:JPgrapes:929315925394595930>',
+		topgg: '<:topgg:930115467161534475>',
+		invite: '<a:AEUIweeklyrecap:930116003365539880>',
+		gear: '<:gear:905921143561662524>',
+	};
+	colors = {
+		Rojo: '#ff4e4e',
+		AzulClaro: '#cafff8',
+		AzulClaro2: '#c6e2ff',
+		Amarillo: '#ffce8a',
+		Rosa: '#e1bcec',
+		RosaClaro: '#CCA9DD',
+		VerdeClaro: '#c0ec8c',
+		VerdeClaro2: '#a2ec8c',
+		MoradoClaro: '#e6e6fa',
+		Invisible: '#2F3136',
+		Rosado: {
+			One: '#e6c8ee',
+		},
+	};
+};

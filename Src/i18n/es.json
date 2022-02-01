@@ -1,0 +1,151 @@
+{
+	"config": {
+		"lang": {
+			"args": "{emoji} - **{user}**, Tienes que elegir un lenguaje. (en/es)",
+			"args2": "{emoji} - **{user}**, ¡Ese lenguaje no es válido!",
+			"argses": "{emoji} - **{user}**, ¡Este lenguaje ya está establecido!",
+			"argsen": "{emoji} - **{user}**, ¡Este lenguaje ya está establecido!",
+			"es": "{emoji} - **{user}**, ¡Muy bien! El lenguaje se ha cambiado a **Español**.",
+			"en": "{emoji} - **{user}**, ¡Muy bien! El lenguaje se ha cambiado a **Ingles**."
+		},
+		"prefix": {
+			"args": "{emoji} - **{user}**, ¡Escribe el nuevo prefijo!",
+			"args2": "{emoji} - **{user}**, ¡El prefijo no puede llevar más de **5** caracteres!",
+			"charcode": "{emoji} - **{user}**, ¡No intentes poner textos invisibles!",
+			"emoji": "{emoji} - **{user}**, ¡El prefijo no debe contener emojis!",
+			"same": "{emoji} - **{user}**, Ese prefijo ya esta establecido.",
+			"success": "{emoji} - **{user}**, ¡Muy Bien! El prefijo desde ahora será **{prefix}**"
+		}
+	},
+	"misc": {
+		"ping": "Pong!\n```ml\nWebSocket: {ping2}ms.\nNode: {ping}ms.```",
+		"snipe": {
+			"view": "{emoji} - **{user}**, No puedo ver ese canal.",
+			"no": "{emoji} - **{user}**, ¡No hay ningun mensaje!",
+			"no2": "{emoji} - **{user}**, ¡Solo hay **{snipes}** mensajes!",
+			"page": "Pagina {page}/{page2}",
+			"nofound": "Contenido no encontrado, lo siento."
+		},
+		"banana": {
+			"author": "**{user}**, ¡Tu 🍌 mide **{random}cm**!",
+			"other": "¡La 🍌 de **{user}** mide **{random}cm**!"
+		},
+		"emoji": {
+			"args": "{emoji} - **{user}**, ¡Debes ingresar un emoji!",
+			"args2": "{emoji} - **{user}**, ¡Ese emoji no es válido!"
+		},
+		"avatar": {
+			"error": "¡No fue posible encontrar a ese usuario! {emoji}"
+		},
+		"help": {
+			"one": "¡Hola! **{user}**, Bienvenido al menú de ayuda\n> Ayuda detallada: **{prefix}help [Comando]**",
+			"two": {
+				"a": "Categorías",
+				"b": "> **Misceláneo:** ({misc})\n> **Configuración:** ({config})\n> **Música:** ({music})"
+			},
+			"three": "Sytanxis: <> - Opcional / [] - Requerido",
+			"menu": {
+				"a": "¡Interactua con el menú!"
+			}
+		}
+	},
+	"developer": {
+		"blacklist": {
+			"reason": "Motivo no especificado."
+		}
+	},
+	"music": {
+		"play": {
+			"trivia": "{emoji} - **{user}**, ¡No se puede usa este comando ahora, ya que hay una trivia ahora mismo!",
+			"channel": "{emoji} - **{user}**, ¡Tienes que estar en un canal de voz!",
+			"args": "{emoji} - **{user}**, ¡Proporciona el nombre de la canción!",
+			"igual": "{emoji} - **{user}**, ¡Debes estar en el mismo canal que **{tag}**!",
+			"track": "{emoji} ¡Canción [**{track}**]({uri}) añadida con éxito!\n> **Pedida por:** {user}\n> **Artista:** {art}\n> **Duración:** `{time}`",
+			"track2": "{emoji} ¡Top **{track}** canciones del artista [**{art}**]({uri}) añadidas con éxito!\n> **Pedida por:** {user}\n> **Followers:** {follow}\n> **Género principal:** {gen}",
+			"album": "{emoji} ¡Album **{album}** añadido con éxito!\n> **Canciones:** {track}\n> **Descripcion:** {desc}\n> **Artista:** {art}",
+			"track3": "{emoji} ¡Playlist [**{name}**]({uri}) Añadida con éxito!\n> **Canciones:** {track}\n> **Descripcion:** {desc}\n> **Dueño:** {dc}",
+			"playlist": "{emoji} ¡Playlist [**{name}**]({uri}) Añadida con éxito!\n> **Canciones:** {track}",
+			"found": "No he podido encontrar lo que buscabas. :(",
+			"error": "Ha ocurrido un error al momento de reproducir la canción. {emoji}",
+			"trackload": "{emoji} ¡Canción [**{name}**]({uri}) Añadida con éxito!\n> **Duración:** `{time}`"
+		},
+		"leave": {
+			"player": "{emoji} - **{user}**,  ¡No hay música reproduciéndose!",
+			"no": "{emoji} - **{user}**, ¡No estoy en un canal de voz!"
+		}
+	},
+	"interactions": {
+		"buttons": {
+			"collector": "**{user}** Solo puede utilizar este botón",
+			"music": "{emoji} ¡Debes estar en <#{channel}> para poder usar los botónes!",
+			"track": {
+				"1": "Revolver",
+				"2": "Detener",
+				"3": "Pausar",
+				"4": "Siguiente"
+			}
+		}
+	},
+	"events": {
+		"message": {
+			"mention": "{emoji} Hola, mi prefijo es **{prefix}**, usa **{prefix}help** para más información.",
+			"user": "⚠️ - **{user}**, No tienes los suficientes permisos.\n> • _Permisos requeridos:_ **{perm}**.",
+			"bot": "⚠️ - **{user}**, No tengo los suficientes permisos.\n> • _Permisos requeridos:_ **{perm}**.",
+			"nsfw": "{emoji} - **{user}**, Este canal no permite **contenido explícito**.",
+			"embed": "⚠️ - **{user}**, No tengo permisos de **insertar enlaces**.",
+			"history": "⚠️ - **{user}**, No tengo permisos de ver el **Historial de mensajes**.",
+			"blacklist": "**Espera..**** Tú estás en la **lista negra**!\nTiempo en la lista: <t:{time}:R>",
+			"disable": "{emoji} - **{user}**, Este comando esta bajo mantenimiento!",
+			"cooldown": "{emoji} - **{user}**, Más despacio, a este paso discord nos multará\nEspera **{time}** para volver a usar este comando",
+			"linkembed": "https://images-ext-1.discordapp.net/external/seEiBCrrRH-HIylxlijgdZM9rPLPEEwwZpvrdwpuHx4/https/cdn.upload.systems/uploads/iSxQ55EF.gif",
+			"linknsfw": "https://images-ext-2.discordapp.net/external/hWo6YcxQJtYmNP7dCT0tCW-FTle08xVgBoX0x2CyKJE/https/cdn.upload.systems/uploads/R8jdqUIT.gif",
+			"linkhistory": "https://images-ext-1.discordapp.net/external/_zCROygzkBzSCmLP9M1IPI7Opt8nPz2Sp9r0-dsMuLw/https/cdn.upload.systems/uploads/SAFCD2Uw.gif"
+		},
+		"music": {
+			"track": "{emoji} Reproduciendo ahora [**{track}**]({uri})\n> **Pedido por:** {requester}\n> **Duración:** `{time}`"
+		}
+	},
+	"error": {
+		"find": "{emoji} - **{user}**, No pude encontrar a ese usuario, lo siento.",
+		"view": "{emoji} - **{user}**, ¡No puedo ver ese canal!",
+		"connect": "{emoji} - **{user}**, ¡No me puedo unir a ese canal!",
+		"speak": "{emoji} - **{user}**, ¡No puedo hablar en ese canal!"
+	},
+	"perms": {
+		"1": "Crear invitaciones",
+		"2": "Expulsar miembros",
+		"3": "Banear miembros",
+		"4": "Administrador",
+		"5": "Gestionar canales",
+		"6": "Gestionar servidor",
+		"7": "Añadir reacciones",
+		"8": "Ver registro de auditoría",
+		"9": "Prioridad para hablar",
+		"10": "Transmitir en canales de voz",
+		"11": "Ver canales",
+		"12": "Enviar mensajes",
+		"13": "Enviar mensajes TTS",
+		"14": "Gestionar mensajes",
+		"15": "Insertar enlaces",
+		"16": "Adjuntar archivos",
+		"17": "Leer el historial de mensajes",
+		"18": "Mencionar a todos",
+		"19": "Usar emojis externos",
+		"20": "Ver incidencias del servidor",
+		"21": "Conectar con canales de voz",
+		"22": "Hablar en canales de voz",
+		"23": "Silenciar a los miembros en los canales de voz",
+		"24": "Desmudar a los miembros en los canales de voz",
+		"25": "Mover miembros en canales de voz",
+		"26": "Usar vad",
+		"27": "Cambiar apodos",
+		"28": "Gestionar apodos",
+		"29": "Gestionar roles",
+		"30": "Gestionar webhooks",
+		"31": "Utilizar comandos de aplicación",
+		"32": "Gestionar emojis y stickers",
+		"33": "Utilizar hilos públicos",
+		"34": "Usar hilos privados",
+		"35": "Gestionar hilos"
+	}
+}

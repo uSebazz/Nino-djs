@@ -1,0 +1,151 @@
+{
+	"config": {
+		"lang": {
+			"args": "{emoji} - **{user}**, Choose a language. (en/es)",
+			"args2": "{emoji} - **{user}**, That language is'nt valid.",
+			"argses": "{emoji} - **{user}**, This language is already established!",
+			"argsen": "{emoji} - **{user}**, This language is already established!",
+			"es": "{emoji} - **{user}**, Very good! Language has been changed to **Spanish**.",
+			"en": "{emoji} - **{user}**, Very good! Language has been changed to **English**."
+		},
+		"prefix": {
+			"args": "{emoji} - **{user}**, Write a new prefix!",
+			"args2": "{emoji} - **{user}**, Prefix can't be longer than **5** characters.",
+			"charcode": "{emoji} - **{user}**, Do not try to set invisible characters.",
+			"emoji": "{emoji} - **{user}**, Prefix can't contain emojis.",
+			"same": "{emoji} - **{user}**, This prefix already established!",
+			"success": "{emoji} - **{user}**, Very good! Prefix has been set to **{prefix}**"
+		}
+	},
+	"misc": {
+		"ping": "Pong!\n```ml\nWebSocket: {ping2}ms.\nNode: {ping}ms.```",
+		"snipe": {
+			"view": "{emoji} - **{user}**, Can't view that channel.",
+			"no": "{emoji} - **{user}**, There nothing snipe!",
+			"no2": "{emoji} - **{user}**, There only **{snipes}*+ snipes!",
+			"page": "Page {page}/{page2}",
+			"nofound": "Content not found, Srry."
+		},
+		"banana": {
+			"author": "Your 🍌 measures **{random}cm**!",
+			"other": "*+{user}'s** 🍌 measures **{random}cm**!"
+		},
+		"emoji": {
+			"args": "{emoji} - **{user}**, You must enter an emoji.",
+			"args2": "{emoji} - **{user}**, That emoji isn't valid!"
+		},
+		"avatar": {
+			"error": "Unable to find that user! {emoji}"
+		},
+		"help": {
+			"one": "Hello! **{user}**, Welcome to the help menu\n> Detailed help: **{prefix}help [Command]**",
+			"two": {
+				"a": "Categories",
+				"b": "> **Miscellaneous:** ({misc})\n> **Configuration:** ({config})\n> **Music:** ({music})"
+			},
+			"three": "Sytanxis: <> - Optional / [] - Required",
+			"menu": {
+				"a": "Interact with the menu!"
+			}
+		}
+	},
+	"developer": {
+		"blacklist": {
+			"reason": "No reason."
+		}
+	},
+	"music": {
+		"play": {
+			"trivia": "{emoji} - **{user}**, You cannot use this command while a music trivia is playing!",
+			"channel": "{emoji} - **{user}**, You must be in voice channel!",
+			"args": "{emoji} - **{user}**, You must enter a song name!",
+			"igual": "{emoji} - **{user}**, You must be on the same channel as **{tag}**",
+			"track": "{emoji} Song [**{track}**]({uri}) successfully added!\n> **Request by:** {user}\n> **Artist:** {art}\n> **Time:** `{time}`",
+			"track2": "{emoji} Top **{track}** songs of the artist [**{art}**]({uri}) added to queue!\n> **Requester** {user}\n> **Followers:** {follow}\n> **Gen** {gen}",
+			"album": "{emoji} **{album}** album successfully added!\n> **Songs:** {track}\n> **Description:** {desc}\n> **Artist:** {art}",
+			"track3": "{emoji} Playlist [**{name}**]({uri}) successfully added!\n> **Songs:** {track}\n> **Description:** {desc}\n> **Owner:** {dc}",
+			"playlist": "{emoji} Playlist [**{name}**]({uri} successfully added!\n> **Songs:** {track}",
+			"found": "Couldn't find what you were looking for :(",
+			"error": "An error has occurred while playing the song. {emoji}",
+			"trackload": "{emoji} Song [**{name}**]({uri}) successfully added!\n> **Time:** `{time}`"
+		},
+		"leave": {
+			"player": "{emoji} - **{user}**, No music playing!",
+			"no": "{emoji} - **{user}**, I'm not on a voice channel."
+		}
+	},
+	"interactions": {
+		"buttons": {
+			"collector": "**{user}** Only use this button!",
+			"music": "{emoji} You must be on <#{channel}> to use the buttons!",
+			"track": {
+				"1": "Shuffle",
+				"2": "Stop",
+				"3": "Pause",
+				"4": "Next"
+			}
+		}
+	},
+	"events": {
+		"message": {
+			"mention": "{emoji} Hi, my prefix is **{prefix}**, try **{prefix}help** for more info.",
+			"user": "{emoji} - **{user}**, You don't have enought permissions. \n> **Missing:** {perm}.",
+			"bot": "{emoji} - **{user}**, I don't have enought permissions. \n> **Missing:** {perm}.",
+			"nsfw": "{emoji} - **{user}**, This channel does not allow **explicit content**.",
+			"embed": "{emoji} - **{user}**, I don't have permission to send **Embed Links**.",
+			"history": "{emoji} - **{user}**, I don't have permission to **Read the message history**.",
+			"blacklist": "**Wait..** you're **blacklisted!**\nTime blacklisted: <t:{time}:R>",
+			"disable": "{emoji} - **{user}**, This command is under maintenance!",
+			"linkembed": "https://images-ext-2.discordapp.net/external/2BUPUayrZMdu_Cq0jUWso0jJljuEFuPmNDcJf-XqsMo/https/cdn.upload.systems/uploads/BDcFxyGZ.gif",
+			"cooldown": "{emoji} - **{user}**, Slow down, at this rate discord will fine us\nWait **{time}** to use this command again",
+			"linknsfw": "https://images-ext-2.discordapp.net/external/rEmQ22ivTzpl0AmFnbjWai9H-NgiSCOJeVn5v18_u_U/https/cdn.upload.systems/uploads/8asGQVyO.gif",
+			"linkhistory": "https://images-ext-2.discordapp.net/external/DC4Qja4HuvHq_ey5TUQx-jyphM-OckqeyYYLhMmurLc/https/cdn.upload.systems/uploads/ZkbrVrns.gif"
+		},
+		"music": {
+			"track": "{emoji} Now playing [**{track}**]({uri})\n> **Requester:** {requester}\n> **Duration:** `{time}`"
+		}
+	},
+	"error": {
+		"find": "{emoji} - **{user}**, I couldn't find that user, sorry.",
+		"view": "{emoji} - **{user}**, I can't see that channel.",
+		"connect": "{emoji} - **{user}**, I can't join that channel.",
+		"speak": "{emoji} - **{user}**, I can't speak that channel."
+	},
+	"perms": {
+		"1": "Create invitations",
+		"2": "Expel members",
+		"3": "Ban members",
+		"4": "Administrator",
+		"5": "Manage channels",
+		"6": "Manage server",
+		"7": "Add reactions",
+		"8": "View audit log",
+		"9": "Priority to speak",
+		"10": "Transmit on voice channels",
+		"11": "View channels",
+		"12": "Send messages",
+		"13": "Send TTS messages",
+		"14": "Manage messages",
+		"15": "Insert links",
+		"16": "Attach files",
+		"17": "Read message history",
+		"18": "Mention everyone",
+		"19": "Use external emojis",
+		"20": "View server incidents",
+		"21": "Connect to voice channels",
+		"22": "Speak in voice channels",
+		"23": "Mute members on voice channels",
+		"24": "Unmute members in voice channels",
+		"25": "Move members in voice channels",
+		"26": "Use vad",
+		"27": "Change nicknames",
+		"28": "Manage nicknames",
+		"29": "Manage roles",
+		"30": "Manage webhooks",
+		"31": "Use application commands",
+		"32": "Manage emojis and stickers",
+		"33": "Use public threads",
+		"34": "Use private threads",
+		"35": "Manage threads"
+	}
+}
