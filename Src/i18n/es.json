@@ -102,7 +102,11 @@
 			"linkhistory": "https://images-ext-1.discordapp.net/external/_zCROygzkBzSCmLP9M1IPI7Opt8nPz2Sp9r0-dsMuLw/https/cdn.upload.systems/uploads/SAFCD2Uw.gif"
 		},
 		"music": {
-			"track": "{emoji} Reproduciendo ahora [**{track}**]({uri})\n> **Pedido por:** {requester}\n> **Duración:** `{time}`"
+			"track": "{emoji} Reproduciendo ahora [**{track}**]({uri})\n> **Pedido por:** {requester}\n> **Duración:** `{time}`",
+			"b": {
+				"1": "No se puede saltar la canción, ya que no hay más canciones.",
+				"2": "¡Canción saltada! :)"
+			}
 		}
 	},
 	"error": {

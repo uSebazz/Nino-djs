@@ -151,10 +151,22 @@ module.exports = class event extends events {
 				}
 				case '4': {
 					if (player.queue.tracks.length === 0) {
-						await int.reply({ content: 'No se puede', ephemeral: true });
+						await int.reply({
+							content: client._lang.__({
+								phrase: 'events.music.b.1',
+								locale: queue.channel.guild.lang,
+							}),
+							ephemeral: true,
+						});
 					} else {
 						player?.queue.next() &&
-							int.reply({ content: 'Cancion skipeada', ephemeral: true });
+							int.reply({
+								content: client._lang.__({
+									phrase: 'events.music.b.2',
+									locale: queue.channel.guild.lang,
+								}),
+								ephemeral: true,
+							});
 						await col.stop();
 					}
 					break;

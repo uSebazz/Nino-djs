@@ -102,7 +102,11 @@
 			"linkhistory": "https://images-ext-2.discordapp.net/external/DC4Qja4HuvHq_ey5TUQx-jyphM-OckqeyYYLhMmurLc/https/cdn.upload.systems/uploads/ZkbrVrns.gif"
 		},
 		"music": {
-			"track": "{emoji} Now playing [**{track}**]({uri})\n> **Requester:** {requester}\n> **Duration:** `{time}`"
+			"track": "{emoji} Now playing [**{track}**]({uri})\n> **Requester:** {requester}\n> **Duration:** `{time}`",
+			"b": {
+				"1": "Song can't be skipped, as there are no more songs.",
+				"2": "Song skipped! :)"
+			}
 		}
 	},
 	"error": {
