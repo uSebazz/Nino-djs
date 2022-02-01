@@ -105,7 +105,11 @@
 			"track": "{emoji} Reproduciendo ahora [**{track}**]({uri})\n> **Pedido por:** {requester}\n> **Duración:** `{time}`",
 			"b": {
 				"1": "No se puede saltar la canción, ya que no hay más canciones.",
-				"2": "¡Canción saltada! :)"
+				"2": "¡Canción saltada! :)",
+				"a": {
+					"1": "pausada",
+					"2": "resumida"
+				}
 			}
 		}
 	},

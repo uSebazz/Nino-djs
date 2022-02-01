@@ -105,7 +105,11 @@
 			"track": "{emoji} Now playing [**{track}**]({uri})\n> **Requester:** {requester}\n> **Duration:** `{time}`",
 			"b": {
 				"1": "Song can't be skipped, as there are no more songs.",
-				"2": "Song skipped! :)"
+				"2": "Song skipped! :)",
+				"a": {
+					"1": "pause",
+					"2": "resume"
+				}
 			}
 		}
 	},
