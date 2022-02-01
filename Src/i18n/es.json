@@ -107,8 +107,9 @@
 				"1": "No se puede saltar la canción, ya que no hay más canciones.",
 				"2": "¡Canción saltada! :)",
 				"a": {
-					"1": "pausada",
-					"2": "resumida"
+					"1": "pauso",
+					"2": "resumio",
+					"text": "La canción se {text}"
 				}
 			}
 		}

@@ -145,16 +145,27 @@ module.exports = class event extends events {
 				}
 				case '3': {
 					player.pause(!player.paused);
-					text = player.paused
+					let text = player.paused
 						? client._lang.__({
 								phrase: 'events.music.b.a.1',
 								locale: queue.channel.guild.lang,
 						  })
 						: client._lang.__({
-							phrase: 'events.music.b.a.2',
-							locale: queue.channel.guild.lang,
-					  });
-					await int.reply({ content: `Esta verga se ${text}`, ephemeral: true });
+								phrase: 'events.music.b.a.2',
+								locale: queue.channel.guild.lang,
+						  });
+					await int.reply({
+						content: client._lang.__mf(
+							{
+								phrase: 'events.music.b.a.text',
+								locale: queue.channel.guild.lang,
+							},
+							{
+								text: text,
+							}
+						),
+						ephemeral: true,
+					});
 					break;
 				}
 				case '4': {
