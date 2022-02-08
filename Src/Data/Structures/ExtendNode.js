@@ -11,7 +11,6 @@ load({
 	autoResolveYoutubeTracks: true,
 	playlistPageLimit: 50,
 	albumPageLimit: 50,
-	searchPrefix: 'youtube music',
 });
 
 module.exports = class NinoLink extends Node {
