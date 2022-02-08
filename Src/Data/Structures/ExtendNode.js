@@ -1,6 +1,14 @@
 const { Node } = require('lavaclient');
-const { lava_host, lava_pass } = require('../../Data/Utils/Stack/Lavalink.js');
+const { lava_host, lava_pass, id, secret } = require('../../Data/Utils/Stack/Lavalink.js');
 const Client = require('./ClientInit');
+
+load({
+	client: {
+		id: id,
+		secret: secret,
+	},
+	autoResolveYoutubeTracks: true,
+});
 
 module.exports = class NinoLink extends Node {
 	/**
@@ -17,3 +25,4 @@ module.exports = class NinoLink extends Node {
 		});
 	}
 };
+

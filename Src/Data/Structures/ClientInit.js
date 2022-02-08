@@ -6,7 +6,6 @@ const { join } = require('path');
 const NinoLink = require('./ExtendNode');
 const { load } = require('@lavaclient/spotify');
 const db = require('../DataBases');
-const { id, secret } = require('../../Data/Utils/Stack/Lavalink');
 
 module.exports = class NinoClient extends Client {
 	constructor() {
@@ -97,13 +96,6 @@ module.exports = class NinoClient extends Client {
 		return Formatters.codeBlock(lang, code);
 	}
 	_init(token = process.env.TOKEN) {
-		load({
-			client: {
-				id: id,
-				secret: secret,
-			},
-			autoResolveYoutubeTracks: true,
-		});
 		require('../Handlers/Commands')(this);
 		require('../Handlers/Events')(this);
 		require('../Handlers/Slash')(this);
