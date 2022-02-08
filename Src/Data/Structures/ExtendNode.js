@@ -9,8 +9,6 @@ load({
 		secret: secret,
 	},
 	autoResolveYoutubeTracks: true,
-	playlistPageLimit: 50,
-	albumPageLimit: 50,
 });
 
 module.exports = class NinoLink extends Node {
