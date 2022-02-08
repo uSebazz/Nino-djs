@@ -4,7 +4,6 @@ const { Client, Collection, Formatters, Options } = require('discord.js');
 const utils = new (require('../Utils/utils'))();
 const { join } = require('path');
 const NinoLink = require('./ExtendNode');
-const { load } = require('@lavaclient/spotify');
 const db = require('../DataBases');
 
 module.exports = class NinoClient extends Client {
