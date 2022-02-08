@@ -8,6 +8,7 @@ const {
 const command = require('../../Data/Structures/Commands');
 const { SpotifyItemType } = require('@lavaclient/spotify');
 const { timeString, millisecondsToTimeObj } = require('../../Data/Utils/Functions/Functions');
+const { convertTime } = require('../../Data/Utils/Functions/Time')
 
 module.exports = class NinoCommands extends command {
 	constructor(client) {
@@ -332,7 +333,7 @@ module.exports = class NinoCommands extends command {
 											},
 											{
 												name: track.info.title,
-												time: timeString(millisecondsToTimeObj(track.info.length)),
+												time: convertTime(track.info.length),
 												uri: track.info.uri,
 												emoji: client._emotes.music,
 											}

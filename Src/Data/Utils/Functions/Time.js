@@ -1,129 +1,53 @@
 module.exports = {
-	formatTime(milliseconds, minimal = false) {
-		if (!milliseconds || isNaN(milliseconds) || milliseconds <= 0) {
-			throw new RangeError(
-				'Utils#formatTime(milliseconds: number) Milliseconds must be a number greater than 0'
-			);
+	convertTime: function (duration) {
+		var milliseconds = parseInt((duration % 1000) / 100),
+			seconds = parseInt((duration / 1000) % 60),
+			minutes = parseInt((duration / (1000 * 60)) % 60),
+			hours = parseInt((duration / (1000 * 60 * 60)) % 24);
+
+		hours = hours < 10 ? '0' + hours : hours;
+		minutes = minutes < 10 ? '0' + minutes : minutes;
+		seconds = seconds < 10 ? '0' + seconds : seconds;
+
+		if (duration < 3600000) {
+			return minutes + ':' + seconds;
+		} else {
+			return hours + ':' + minutes + ':' + seconds;
 		}
-		if (typeof minimal !== 'boolean') {
-			throw new RangeError(
-				'Utils#formatTime(milliseconds: number, minimal: boolean) Minimal must be a boolean'
-			);
-		}
-		const times = {
-			years: 0,
-			months: 0,
-			weeks: 0,
-			days: 0,
-			hours: 0,
-			minutes: 0,
-			seconds: 0,
-		};
-		while (milliseconds > 0) {
-			if (milliseconds - 31557600000 >= 0) {
-				milliseconds -= 31557600000;
-				times.years++;
-			} else if (milliseconds - 2628000000 >= 0) {
-				milliseconds -= 2628000000;
-				times.months++;
-			} else if (milliseconds - 604800000 >= 0) {
-				milliseconds -= 604800000;
-				times.weeks += 7;
-			} else if (milliseconds - 86400000 >= 0) {
-				milliseconds -= 86400000;
-				times.days++;
-			} else if (milliseconds - 3600000 >= 0) {
-				milliseconds -= 3600000;
-				times.hours++;
-			} else if (milliseconds - 60000 >= 0) {
-				milliseconds -= 60000;
-				times.minutes++;
-			} else {
-				times.seconds = Math.round(milliseconds / 1000);
-				milliseconds = 0;
-			}
-		}
-		const finalTime = [];
-		let first = false;
-		for (const [k, v] of Object.entries(times)) {
-			if (minimal) {
-				if (v === 0 && !first) {
-					continue;
+	},
+	convertNumber: function (number, decPlaces) {
+		decPlaces = Math.pow(10, decPlaces);
+
+		var abbrev = ['K', 'M', 'B', 'T'];
+
+		for (var i = abbrev.length - 1; i >= 0; i--) {
+			var size = Math.pow(10, (i + 1) * 3);
+
+			if (size <= number) {
+				number = Math.round((number * decPlaces) / size) / decPlaces;
+
+				if (number == 1000 && i < abbrev.length - 1) {
+					number = 1;
+					i++;
 				}
-				finalTime.push(v < 10 ? `0${v}` : `${v}`);
-				first = true;
-				continue;
-			}
-			if (v > 0) {
-				finalTime.push(`${v} ${v > 1 ? k : k.slice(0, -1)}`);
+
+				number += abbrev[i];
+
+				break;
 			}
 		}
-		let time = finalTime.join(minimal ? ':' : ', ');
-		if (time.includes(',')) {
-			const pos = time.lastIndexOf(',');
-			time = `${time.slice(0, pos)} and ${time.slice(pos + 1)}`;
-		}
-		return time;
+
+		return number;
 	},
-	parseTime(time) {
-		const regex = /\d+\.*\d*\D+/g;
-		time = time.split(/\s+/).join('');
-		let res;
-		let duration = 0;
-		while ((res = regex.exec(time)) !== null) {
-			if (res.index === regex.lastIndex) {
-				regex.lastIndex++;
-			}
-			const local = res[0].toLowerCase();
-			if (
-				local.endsWith('seconds') ||
-				local.endsWith('second') ||
-				(local.endsWith('s') && local.match(/\D+/)[0].length === 1)
-			) {
-				duration += parseInt(local.match(/\d+\.*\d*/)[0], 10) * 1000;
-			} else if (
-				local.endsWith('minutes') ||
-				local.endsWith('minute') ||
-				(local.endsWith('m') && local.match(/\D+/)[0].length === 1)
-			) {
-				duration += parseInt(local.match(/\d+\.*\d*/)[0], 10) * 60000;
-			} else if (
-				local.endsWith('hours') ||
-				local.endsWith('hour') ||
-				(local.endsWith('h') && local.match(/\D+/)[0].length === 1)
-			) {
-				duration += parseInt(local.match(/\d+\.*\d*/)[0], 10) * 3600000;
-			} else if (
-				local.endsWith('days') ||
-				local.endsWith('day') ||
-				(local.endsWith('d') && local.match(/\D+/)[0].length === 1)
-			) {
-				duration += parseInt(local.match(/\d+\.*\d*/)[0], 10) * 86400000;
-			} else if (
-				local.endsWith('weeks') ||
-				local.endsWith('week') ||
-				(local.endsWith('w') && local.match(/\D+/)[0].length === 1)
-			) {
-				duration += parseInt(local.match(/\d+\.*\d*/)[0], 10) * 604800000;
-			} else if (local.endsWith('months') || local.endsWith('month')) {
-				duration += parseInt(local.match(/\d+\.*\d*/)[0], 10) * 2628000000;
-			} else if (
-				local.endsWith('years') ||
-				local.endsWith('year') ||
-				(local.endsWith('y') && local.match(/\D+/)[0].length === 1)
-			) {
-				duration += parseInt(local.match(/\d+\.*\d*/)[0], 10) * 31557600000;
-			}
+	convertHmsToMs: function (hms) {
+		if (hms.length < 3) {
+			return (hms = +a[0] * 1000);
+		} else if (hms.length < 6) {
+			const a = hms.split(':');
+			return (hms = (+a[0] * 60 + +a[1]) * 1000);
+		} else {
+			const a = hms.split(':');
+			return (hms = (+a[0] * 60 * 60 + +a[1] * 60 + +a[2]) * 1000);
 		}
-		if (duration === 0) {
-			return null;
-		}
-		return duration;
-	},
-	checkDays(date) {
-		let now = new Date();
-		let diff = now.getTime() - date.getTime();
-		let days = Math.floor(diff / 86400000);
-		return days + (days == 1 ? ' Día' : ' Días' + ' Atrás');
 	},
 };
