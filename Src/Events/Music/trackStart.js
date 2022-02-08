@@ -8,7 +8,7 @@ const {
 const events = require('../../Data/Structures/Events');
 const Client = new (require('../../Data/Structures/ClientInit'))();
 const { convertTime } = require('../../Data/Utils/Functions/Time');
-const { LoopType, Shuff } = require('@lavaclient/queue');
+const { LoopType, Shuffle } = require('@lavaclient/queue');
 
 module.exports = class event extends events {
 	constructor(...args) {
