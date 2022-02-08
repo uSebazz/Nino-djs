@@ -7,8 +7,7 @@ const {
 } = require('discord.js');
 const command = require('../../Data/Structures/Commands');
 const { SpotifyItemType } = require('@lavaclient/spotify');
-const { timeString, millisecondsToTimeObj } = require('../../Data/Utils/Functions/Functions');
-const { convertTime } = require('../../Data/Utils/Functions/Time')
+const { convertTime } = require('../../Data/Utils/Functions/Time');
 
 module.exports = class NinoCommands extends command {
 	constructor(client) {
@@ -167,7 +166,7 @@ module.exports = class NinoCommands extends command {
 												emoji: client._emotes.music,
 												user: message.author.toString(),
 												art: item.artists[0].name,
-												time: timeString(millisecondsToTimeObj(item.data.duration_ms)),
+												time: convertTime(item.data.duration_ms),
 											}
 										)
 									)
