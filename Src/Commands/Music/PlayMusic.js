@@ -353,7 +353,7 @@ module.exports = class NinoCommands extends command {
 			}
 			const started = player.playing || player.paused;
 
-			player.queue.add(tracks, {
+			await player.queue.add(tracks, {
 				requester: message.author.id,
 			});
 			if (!started) {

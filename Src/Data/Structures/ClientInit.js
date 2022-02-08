@@ -3,8 +3,18 @@ require('dotenv').config();
 const { Client, Collection, Formatters, Options } = require('discord.js');
 const utils = new (require('../Utils/utils'))();
 const { join } = require('path');
+const { load } = require('@lavaclient/spotify');
+const { id, secret } = require('../../Data/Utils/Stack/Lavalink');
 const NinoLink = require('./ExtendNode');
 const db = require('../DataBases');
+
+load({
+	client: {
+		id: id,
+		secret: secret,
+	},
+	autoResolveYoutubeTracks: true,
+});
 
 module.exports = class NinoClient extends Client {
 	constructor() {
