@@ -7,7 +7,7 @@ const {
 } = require('discord.js');
 const events = require('../../Data/Structures/Events');
 const Client = new (require('../../Data/Structures/ClientInit'))();
-const { timeString, millisecondsToTimeObj } = require('../../Data/Utils/Functions/Functions');
+const { convertTime } = require('../../Data/Utils/Functions/Time');
 const { LoopType, Shuff } = require('@lavaclient/queue');
 
 module.exports = class event extends events {
@@ -42,7 +42,7 @@ module.exports = class event extends events {
 
 		let position;
 		let length2 = queue.current.length;
-		let trackLength = timeString(millisecondsToTimeObj(length2));
+		let trackLength = convertTime(length2);
 		const req = `<@${queue.current.requester}>`;
 
 		if (!queue.current.isSeekable) {
