@@ -8,14 +8,11 @@ const {
 } = require('discord.js');
 const command = require('../../Data/Structures/Commands');
 
-module.exports =  class NinoCommands extends command {
+module.exports = class NinoCommands extends command {
 	constructor(client) {
 		super(client, {
 			name: 'ping',
-			description: [
-				'Show bot ping',
-				'Muestra el ping del bot',
-			],
+			description: ['Show bot ping', 'Muestra el ping del bot'],
 			aliases: [],
 			usage: [],
 			example: [],

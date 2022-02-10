@@ -39,4 +39,4 @@ class NinoCommands {
 		};
 	}
 }
-module.exports =  NinoCommands;
+module.exports = NinoCommands;

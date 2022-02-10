@@ -108,4 +108,4 @@ module.exports = class NinoCommands extends command {
 			);
 		}
 	}
-}
+};

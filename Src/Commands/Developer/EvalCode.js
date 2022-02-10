@@ -11,7 +11,7 @@ const Discord = require('discord.js');
 const { promisify, inspect } = require('util');
 const { exec } = require('child_process');
 
-module.exports =  class NinoCommands extends command {
+module.exports = class NinoCommands extends command {
 	constructor(client) {
 		super(client, {
 			name: 'eval',

@@ -46,9 +46,7 @@ module.exports = class NinoCommands extends command {
 					.setColor(client._colors.Rosado.One)
 					.addField(
 						'🎂 Información',
-						`> Bot: ${
-							client.user.tag
-						}\n> Desarollador: ${devs}\n> Creado: <t:${
+						`> Bot: ${client.user.tag}\n> Desarollador: ${devs}\n> Creado: <t:${
 							(client.user.createdAt / 1000) | 0
 						}:R>`
 					),

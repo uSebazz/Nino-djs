@@ -7,7 +7,7 @@ const {
 } = require('discord.js');
 const command = require('../../Data/Structures/Commands');
 
-module.exports =  class NinoCommands extends command {
+module.exports = class NinoCommands extends command {
 	constructor(client) {
 		super(client, {
 			name: 'avatar',

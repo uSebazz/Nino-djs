@@ -1,4 +1,4 @@
-module.exports =  class events {
+module.exports = class events {
 	async run(...args) {
 		try {
 			await this.run(...args);

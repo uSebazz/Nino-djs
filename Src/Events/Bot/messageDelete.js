@@ -23,6 +23,6 @@ module.exports = class event extends Event {
 			attachments: [...message.attachments.values()].map((a) => a.proxyURL),
 			createdAt: message.createdTimestamp,
 		});
-		client._snipes.set(message.channel.id, snipes); 
+		client._snipes.set(message.channel.id, snipes);
 	};
 };

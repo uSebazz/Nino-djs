@@ -14,7 +14,7 @@ module.exports = class NinoCommands extends command {
 		super(client, {
 			name: 'reload',
 			description: [],
-			aliases: ['cmdr', 'cmdreload','r'],
+			aliases: ['cmdr', 'cmdreload', 'r'],
 			usage: [],
 			example: [],
 			userPerms: [],
@@ -48,8 +48,6 @@ module.exports = class NinoCommands extends command {
 				client._commands.set(cmd._info.name.toLowerCase(), cmd);
 			});
 		});
-		return message.reply(
-			`¡Comandos reiniciados con exito! ${client._emotes.check}`
-		);
+		return message.reply(`¡Comandos reiniciados con exito! ${client._emotes.check}`);
 	}
-}
+};
