@@ -69,7 +69,6 @@ module.exports = class NinoClient extends Client {
 		this._up = Date.now();
 		this._music = new NinoLink(this);
 		this._queueHistory = new Map();
-		this._triviaMap = new Map();
 		this.ws.on('VOICE_SERVER_UPDATE', (data) => this._music.handleVoiceUpdate(data));
 		this.ws.on('VOICE_STATE_UPDATE', (data) => this._music.handleVoiceUpdate(data));
 		this._db = db;
