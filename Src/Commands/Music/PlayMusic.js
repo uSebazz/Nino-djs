@@ -39,20 +39,6 @@ module.exports = class NinoCommands extends command {
 		const client = this.client;
 
 		try {
-			if (client._triviaMap.has(message.guildId))
-				return message.reply(
-					client._lang.__mf(
-						{
-							phrase: 'music.play.trivia',
-							locale: lang,
-						},
-						{
-							user: client._clear(message.author.tag),
-							emoji: client._emotes.fail,
-						}
-					)
-				);
-
 			const { channel } = message.member.voice;
 			if (!channel)
 				return message.reply(
