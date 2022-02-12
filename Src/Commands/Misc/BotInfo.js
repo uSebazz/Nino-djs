@@ -35,12 +35,20 @@ module.exports = class NinoCommands extends command {
 		 * @type {import('../../data/structures/ClientInit')}
 		 */
 		const client = this.client;
-		const devs = ['899339781132124220'].map((t) => `[${client.users.cache.get(t).tag}](https://discord.com/users/${t})`)
+		const devs = ['899339781132124220']
+			.map((t) => `[${client.users.cache.get(t).tag}](https://discord.com/users/${t})`)
 			.join(' ');
 		const users = client.guilds.cache.reduce((c, v) => c + v.memberCount, 0).toLocaleString();
 		const channels = client.channels.cache.size;
 		const guilds = client.guilds.cache.size;
-		const uptime = (Date.now() / 1000 - client.uptime / 1000).toFixed(0);
+
+		//———————————————[Uptime]———————————————//
+		let days = Math.floor(client.uptime / 86400000);
+		let hours = Math.floor(client.uptime / 3600000) % 24;
+		let minutes = Math.floor(client.uptime / 60000) % 60;
+		let seconds = Math.floor(client.uptime / 1000) % 60;
+		let uptime = `${days}d, ${hours}h, ${minutes}m, ${seconds}s.`;
+		//———————————————[Uptime]———————————————//
 
 		return message.reply({
 			embeds: [
@@ -49,9 +57,9 @@ module.exports = class NinoCommands extends command {
 					.setColor(client._colors.Rosado.One)
 					.addField(
 						'🎂 Información',
-						`> Bot: **${client.user.tag}**\n> Desarolladores: ${devs}\n> Creado: <t:${
-							(client.user.createdAt / 1000) | 0
-						}:R>\n> Prefix: **${prefix}**`
+						`> Bot: **${
+							client.user.tag
+						}**\n> Desarolladores: ${devs}\n> Creado: **${client.user.createdAt.toLocaleDateString()}**\n> Prefix: **${prefix}**`
 					)
 					.addField(
 						'🎵 Música',
@@ -59,7 +67,7 @@ module.exports = class NinoCommands extends command {
 					)
 					.addField(
 						'🌸 Estadísticas',
-						`> Usuarios: **${users}**\n> Canales: **${channels}**\n> Servidores: **${guilds}**\n> Uptime: <t:${uptime}:R>`
+						`> Usuarios: **${users}**\n> Canales: **${channels}**\n> Servidores: **${guilds}**\n> Uptime: **${uptime}**`
 					),
 			],
 		});
