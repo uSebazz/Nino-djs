@@ -55,7 +55,7 @@ module.exports = class NinoClient extends Client {
 				],
 			},
 		});
-		this._devs = ['852630893767426079', '899339781132124220', '458083324842213376'];
+		this._devs = ['899339781132124220', '458083324842213376', '853468425203613736'];
 		this._commands = new Collection();
 		this._aliases = new Collection();
 		this._slash = new Collection();

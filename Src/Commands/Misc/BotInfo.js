@@ -36,19 +36,30 @@ module.exports = class NinoCommands extends command {
 		 */
 		const client = this.client;
 		const devs = client._devs
-			.map((y) => `[${client.users.cache.get(y).username}](https://discord.com/users/${y})`)
-			.join(', ');
+			.map((t) => `[${client.users.cache.get(t).username}](https://discord.com/users/${t})`)
+			.join(' ');
+		const users = client.guilds.cache.reduce((c, v) => c + v.memberCount, 0).toLocaleString();
+		const channels = client.channels.cache.size;
+		const guilds = client.guilds.cache.size
 
 		return message.reply({
 			embeds: [
 				new MessageEmbed()
-					.setAuthor({ name: 'Estadisticas de Nino', iconURL: client.user.displayAvatarURL() })
+					.setAuthor({ name: 'Estadísticas de Nino', iconURL: client.user.displayAvatarURL() })
 					.setColor(client._colors.Rosado.One)
 					.addField(
 						'🎂 Información',
-						`> Bot: ${client.user.tag}\n> Desarollador: ${devs}\n> Creado: <t:${
+						`> Bot: **${client.user.tag}**\n> Desarolladores: ${devs}\n> Creado: <t:${
 							(client.user.createdAt / 1000) | 0
-						}:R>`
+						}:R>\n> Prefix: **${prefix}**`
+					)
+					.addField(
+						'🎵 Música',
+						`> Players: **${client._music.players.size}**\n> Nodos: **1**`
+					)
+					.addField(
+						'🌸 Estadísticas',
+						`> Usuarios: **${users}**\n> Canales: **${channels}**\n> Servidores: **${guilds}**`
 					),
 			],
 		});

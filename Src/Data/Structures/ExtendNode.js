@@ -12,7 +12,8 @@ module.exports = class NinoLink extends Node {
 			connection: {
 				host: lava_host,
 				password: lava_pass,
-				port: 2333,
+				port: 443,
+				secure: true,
 			},
 		});
 	}
