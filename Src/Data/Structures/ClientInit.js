@@ -66,7 +66,6 @@ module.exports = class NinoClient extends Client {
 		this._colors = utils.colors;
 		this._utils = utils;
 		this._emotes = utils.emotes;
-		this._up = Date.now();
 		this._music = new NinoLink(this);
 		this._queueHistory = new Map();
 		this.ws.on('VOICE_SERVER_UPDATE', (data) => this._music.handleVoiceUpdate(data));
