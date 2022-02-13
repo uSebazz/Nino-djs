@@ -1,12 +1,3 @@
-/**
- * @typedef {Object} slashOptions
- */
-
-/**
- * @param {import('discord.js').ApplicationCommandData} ApplicationCommandData
- * @param {slashOptions} [options]
- */
-
 class NinoSlash {
 	constructor(
 		client,
@@ -14,8 +5,6 @@ class NinoSlash {
 			name = null,
 			description = null,
 			options = [],
-			type = null,
-			required = false,
 			category = null,
 			botPerms = [],
 			userPerms = [],
@@ -30,8 +19,6 @@ class NinoSlash {
 			name,
 			description,
 			options,
-			type,
-			required,
 			category,
 		};
 		this._config = {

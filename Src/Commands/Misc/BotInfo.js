@@ -59,7 +59,7 @@ module.exports = class NinoCommands extends command {
 						'🎂 Información',
 						`> Bot: **${
 							client.user.tag
-						}**\n> Desarolladores: ${devs}\n> Creado: **${client.user.createdAt.toLocaleDateString()}**\n> Prefix: **${prefix}**`
+						}**\n> Desarolladores: **${devs}**\n> Creado: **${client.user.createdAt.toLocaleDateString()}**\n> Hosting: **[kiaura.eu](https://kiaura.eu)**`
 					)
 					.addField(
 						'🎵 Música',

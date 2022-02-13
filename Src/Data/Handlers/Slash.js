@@ -14,15 +14,13 @@ module.exports = (client) => {
 				.forEach((command) => {
 					const req = require(`../../Slash/${dir}/${command}`);
 					const cmd = new req(client);
-					client._slash.set(cmd._info.name, cmd);
 					const data = {
 						name: cmd._info.name,
 						description: cmd._info.description,
-						options: cmd._info.options,
-						type: cmd._info.type,
-						required: cmd._info.required,
+						options: cmd._info.options ? cmd._info.options : [],
 					};
 					client._array.push(data);
+					client._slash.set(cmd._info.name, cmd);
 				});
 		});
 	});

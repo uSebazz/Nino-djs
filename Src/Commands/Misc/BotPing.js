@@ -36,7 +36,7 @@ module.exports = class NinoCommands extends command {
 		 * @type {import('../../data/structures/ClientInit')}
 		 */
 		const client = this.client;
-		const api = Date.now() - message.createdTimestamp;
+		const api = message.createdTimestamp - new Date();
 		message.reply({
 			content: client._lang.__mf(
 				{

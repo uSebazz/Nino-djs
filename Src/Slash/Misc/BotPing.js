@@ -1,11 +1,19 @@
 const command = require('../../Data/Structures/Slash');
-const { Interaction, MessageEmbed, MessageButton } = require('discord.js');
+const { InteractionCommand, MessageEmbed, MessageButton } = require('discord.js');
 
 module.exports = class NinoSlash extends command {
 	constructor(client) {
 		super(client, {
 			name: 'ping',
-			description: 'Ping del bot papu',
+			description: '📡 Muestra la latencia actual del bot',
+			options: [
+				{
+					name: 'usuario',
+					description: 'Mira el ping del usuario / bot',
+					type: 'USER',
+					required: false,
+				},
+			],
 			category: 'Informacion',
 			botPerms: [],
 			userPerms: [],
@@ -17,7 +25,7 @@ module.exports = class NinoSlash extends command {
 	}
 	/**
 	 *
-	 * @param { Interaction } interaction
+	 * @param { InteractionCommand } interaction
 	 * @param { String[] } args
 	 */
 	async run(interaction, args) {
@@ -26,8 +34,16 @@ module.exports = class NinoSlash extends command {
 		 */
 		const client = this.client;
 
-		interaction.followUp({
-			content: `${client.ws.ping}ms!`,
-		});
+		let user = interaction.options.getUser('usuario');
+
+		if (user) {
+			interaction.followUp({
+				content: `**${user.tag}** Ping: **${Math.round(Math.random() * 100)}ms!**`,
+			});
+		} else {
+			interaction.followUp({
+				content: `**${client.ws.ping}**ms!`,
+			});
+		}
 	}
 };

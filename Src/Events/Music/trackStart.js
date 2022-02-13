@@ -19,7 +19,6 @@ module.exports = class event extends events {
 	 * @param {Message} message
 	 */
 	run = async (client, queue, title, uri, length, isSeekable) => {
-		if (client._triviaMap.has(queue.channel.guildId)) return;
 		const queueHistory = client._queueHistory.get(queue.channel.guildId);
 
 		if (queue.loop.type == LoopType.Queue) {
