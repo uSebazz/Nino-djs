@@ -47,6 +47,21 @@
 			"menu": {
 				"a": "Interact with the menu!"
 			}
+		},
+		"bot": {
+			"one": "Nino statistics",
+			"field": {
+				"one": "🎂 Information",
+				"two": "> Bot: **{bot}**\n> Developer: **{dev}**\n> Created: **{date}**\n> Hosting: **[kiaura.eu](https://kiaura.eu)**"
+			},
+			"field2": {
+				"one": "🎵 Music",
+				"two": "> Players: **{players}**\n> Nodes: **1**"
+			},
+			"field3": {
+				"one": "🌸 Statistics",
+				"two": "> Users: **{users}**\n> Channels: **{channels}**\n> Servers: **{guilds}**\n> Uptime: **{up}**"
+			}
 		}
 	},
 	"developer": {

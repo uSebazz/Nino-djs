@@ -53,21 +53,63 @@ module.exports = class NinoCommands extends command {
 		return message.reply({
 			embeds: [
 				new MessageEmbed()
-					.setAuthor({ name: 'Estadísticas de Nino', iconURL: client.user.displayAvatarURL() })
+					.setAuthor({
+						name: client._lang.__({
+							phrase: 'misc.bot.one',
+							locale: lang,
+						}),
+						iconURL: client.user.displayAvatarURL(),
+					})
 					.setColor(client._colors.Rosado.One)
 					.addField(
-						'🎂 Información',
-						`> Bot: **${
-							client.user.tag
-						}**\n> Desarolladores: **${devs}**\n> Creado: **${client.user.createdAt.toLocaleDateString()}**\n> Hosting: **[kiaura.eu](https://kiaura.eu)**`
+						client._lang.__({
+							phrase: 'misc.bot.field.one',
+							locale: lang,
+						}),
+						client._lang.__mf(
+							{
+								phrase: 'misc.bot.field.two',
+								locale: lang,
+							},
+							{
+								bot: client.user.tag,
+								dev: devs,
+								date: client.user.createdAt.toLocaleString(),
+							}
+						)
 					)
 					.addField(
-						'🎵 Música',
-						`> Players: **${client._music.players.size}**\n> Nodos: **1**`
+						client._lang.__({
+							phrase: 'misc.bot.field2.one',
+							locale: lang,
+						}),
+						client._lang.__mf(
+							{
+								phrase: 'misc.bot.field2.two',
+								locale: lang,
+							},
+							{
+								players: client._music.players.size,
+							}
+						)
 					)
 					.addField(
-						'🌸 Estadísticas',
-						`> Usuarios: **${users}**\n> Canales: **${channels}**\n> Servidores: **${guilds}**\n> Uptime: **${uptime}**`
+						client._lang.__({
+							phrase: 'misc.bot.field3.one',
+							locale: lang,
+						}),
+						client._lang.__mf(
+							{
+								phrase: 'misc.bot.field3.two',
+								locale: lang,
+							},
+							{
+								users: users,
+								channels: channels,
+								guilds: guilds,
+								up: uptime,
+							}
+						)
 					),
 			],
 		});
