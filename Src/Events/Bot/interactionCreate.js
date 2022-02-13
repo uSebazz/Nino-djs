@@ -12,7 +12,6 @@ module.exports = class event extends events {
 	 */
 	run = async (client, interaction) => {
 		if (interaction.isCommand()) {
-			await interaction.deferReply({ ephemeral: true }).catch(() => {});
 			const slash = client._slash.get(interaction.commandName);
 			if (!slash) return;
 
