@@ -28,7 +28,7 @@ module.exports = class NinoSlash extends command {
 	 * @param { InteractionCommand } interaction
 	 * @param { String[] } args
 	 */
-	async run(interaction, args) {
+	async run(interaction, args, lang) {
 		/**
 		 * @type {import('../../data/structures/ClientInit')}
 		 */
@@ -38,11 +38,20 @@ module.exports = class NinoSlash extends command {
 
 		if (user) {
 			interaction.followUp({
-				content: `**${user.tag}** Ping: **${Math.round(Math.random() * 100)}ms!**`,
+				content: `El ping de **${user.tag}** es de **${Math.round(Math.random() * 100)}**`,
 			});
 		} else {
 			interaction.followUp({
-				content: `**${client.ws.ping}**ms!`,
+				content: client._lang.__mf(
+					{
+						phrase: 'misc.ping',
+						locale: lang,
+					},
+					{
+						ping: interaction.createdAtTimestamp - Date.now(),
+						ping2: client.ws.ping,
+					}
+				),
 			});
 		}
 	}

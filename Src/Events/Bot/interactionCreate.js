@@ -1,7 +1,6 @@
 const events = require('../../Data/Structures/Events');
 const Client = new (require('../../Data/Structures/ClientInit'))();
 const { Interaction } = require('discord.js');
-const colors = require('colors');
 
 module.exports = class event extends events {
 	constructor(...args) {
@@ -13,11 +12,12 @@ module.exports = class event extends events {
 	 */
 	run = async (client, interaction) => {
 		if (interaction.isCommand()) {
-			await interaction.deferReply({ ephemeral: false }).catch(() => {});
+			await interaction.deferReply({ ephemeral: true }).catch(() => {});
 			const slash = client._slash.get(interaction.commandName);
 			if (!slash) return;
 
 			const args = [];
+			let lang = interaction.guild.lang;
 
 			for (let option of interaction.options.data) {
 				if (option.type === 'SUB_COMMAND') {
@@ -28,7 +28,7 @@ module.exports = class event extends events {
 				} else if (option.value) args.push(option.value);
 			}
 
-			slash.run(interaction, args);
+			slash.run(interaction, args, lang);
 		}
 	};
 };
