@@ -9,7 +9,7 @@ const command = require('../../Data/Structures/Commands');
 const { SpotifyItemType } = require('@lavaclient/spotify');
 const { convertTime } = require('../../Data/Utils/Functions/Time');
 
-module.exports = class NinoCommands extends command {
+class PlayMusic extends command {
 	constructor(client) {
 		super(client, {
 			name: 'play',
@@ -352,3 +352,4 @@ module.exports = class NinoCommands extends command {
 		}
 	}
 };
+module.exports = PlayMusic

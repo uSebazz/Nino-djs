@@ -10,7 +10,7 @@ const {
 const command = require('../../Data/Structures/Commands');
 const { parse } = require('twemoji-parser');
 
-module.exports = class NinoCommands extends command {
+class EnlargeEmoji extends command {
 	constructor(client) {
 		super(client, {
 			name: 'emoji',
@@ -87,4 +87,5 @@ module.exports = class NinoCommands extends command {
 			});
 		}
 	}
-};
+}
+module.exports = EnlargeEmoji;

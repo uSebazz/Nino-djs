@@ -10,10 +10,10 @@ module.exports = class NinoLink extends Node {
 		super({
 			sendGatewayPayload: (id, payload) => client.guilds.cache.get(id).shard.send(payload),
 			connection: {
-				host: lava_host,
-				password: lava_pass,
-				port: 443,
-				secure: true,
+				host: process.env.LAVA_IP,
+				password: process.env.LAVA_PASS,
+				port: 25786,
+				secure: false,
 			},
 		});
 	}

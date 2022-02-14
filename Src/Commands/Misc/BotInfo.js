@@ -7,7 +7,7 @@ const {
 } = require('discord.js');
 const command = require('../../Data/Structures/Commands');
 
-module.exports = class NinoCommands extends command {
+class BotInformation extends command {
 	constructor(client) {
 		super(client, {
 			name: 'botinfo',
@@ -114,4 +114,5 @@ module.exports = class NinoCommands extends command {
 			],
 		});
 	}
-};
+}
+module.exports = BotInformation;

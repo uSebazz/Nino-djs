@@ -8,7 +8,7 @@ const {
 } = require('discord.js');
 const command = require('../../Data/Structures/Commands');
 
-module.exports = class NinoCommands extends command {
+class BotLatency extends command {
 	constructor(client) {
 		super(client, {
 			name: 'ping',
@@ -50,4 +50,5 @@ module.exports = class NinoCommands extends command {
 			),
 		});
 	}
-};
+}
+module.exports = BotLatency;
