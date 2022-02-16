@@ -162,7 +162,8 @@ class PlayMusic extends command {
 						break;
 					}
 					case SpotifyItemType.Artist: {
-						const tracks = await item.resolveYoutubeTracks();
+						const track = await item.resolveYoutubeTracks();
+                                                tracks = [track];
 						message.channel.send({
 							embeds: [
 								new MessageEmbed()
@@ -190,7 +191,8 @@ class PlayMusic extends command {
 						break;
 					}
 					case SpotifyItemType.Album: {
-						const tracks = await item.resolveYoutubeTracks();
+						const track = await item.resolveYoutubeTracks();
+                                                tracks = [track];
 						message.channel.send({
 							embeds: [
 								new MessageEmbed()
@@ -216,7 +218,8 @@ class PlayMusic extends command {
 						break;
 					}
 					case SpotifyItemType.Playlist: {
-						const tracks = await item.resolveYoutubeTracks();
+						const track = await item.resolveYoutubeTracks();
+                                                tracks = [track];
 						message.channel.send({
 							embeds: [
 								new MessageEmbed()
