@@ -108,6 +108,12 @@ class PlayMusic extends command {
 				);
 			let player = client._music.players.get(message.guildId);
 
+			let queueHistory = client._queueHistory.get(message.guild.id);
+			if (Number(query) && queueHistory.length > 0) {
+				const index = String(Number(query) - 1);
+				query = queueHistory[index].title;
+			}
+
 			if (player && player.channelId !== channel.id)
 				return message.reply(
 					client._lang.__mf(
@@ -122,12 +128,6 @@ class PlayMusic extends command {
 						}
 					)
 				);
-			let queueHistory = client._queueHistory.get(message.guild.id);
-			if (Number(query) && queueHistory.length > 0) {
-				const index = String(Number(query) - 1);
-				query = queueHistory[index].title;
-			}
-
 			let tracks = [];
 
 			if (client._music.spotify.isSpotifyUrl(query)) {
@@ -162,8 +162,7 @@ class PlayMusic extends command {
 						break;
 					}
 					case SpotifyItemType.Artist: {
-						const track = await item.resolveYoutubeTracks();
-                                                tracks = [track];
+						tracks = await item.resolveYoutubeTracks();
 						message.channel.send({
 							embeds: [
 								new MessageEmbed()
@@ -191,8 +190,7 @@ class PlayMusic extends command {
 						break;
 					}
 					case SpotifyItemType.Album: {
-						const track = await item.resolveYoutubeTracks();
-                                                tracks = [track];
+						tracks = await item.resolveYoutubeTracks();
 						message.channel.send({
 							embeds: [
 								new MessageEmbed()
@@ -218,8 +216,7 @@ class PlayMusic extends command {
 						break;
 					}
 					case SpotifyItemType.Playlist: {
-						const track = await item.resolveYoutubeTracks();
-                                                tracks = [track];
+						tracks = await item.resolveYoutubeTracks();
 						message.channel.send({
 							embeds: [
 								new MessageEmbed()
@@ -354,5 +351,5 @@ class PlayMusic extends command {
 			console.log(e);
 		}
 	}
-};
-module.exports = PlayMusic
+}
+module.exports = PlayMusic;
