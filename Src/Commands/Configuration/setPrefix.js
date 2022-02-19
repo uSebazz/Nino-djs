@@ -14,8 +14,8 @@ module.exports = class NinoCommands extends command {
 	constructor(client) {
 		super(client, {
 			name: 'setprefix',
-			description: ['Set a custom Nino prefix.', 'Establece una prefix custom a Nino.'],
-			aliases: ['setprefijo', 'prefix', 'prefixset'],
+			description: ['Establish a custom prefix for Nino.', 'Establece un prefijo personalizado a Nino.'],
+			aliases: ['setprefix', 'prefix', 'establecer-prefijo'],
 			usage: ['setprefix [prefix]', 'setprefix [prefijo]'],
 			example: ['setprefix n/', 'setprefix n!'],
 			userPerms: ['MANAGE_GUILD'],
