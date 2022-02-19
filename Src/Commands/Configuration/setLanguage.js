@@ -13,7 +13,7 @@ module.exports = class NinoCommands extends command {
 		super(client, {
 			name: 'setlanguage',
 			description: [
-				'Sets bot language per server.',
+				'Establish the bot\'s language by guild.',
 				'Establece el lenguaje del bot por servidor.',
 			],
 			aliases: ['lang', 'setlang', 'setlan', 'langset', 'language'],
