@@ -12,8 +12,8 @@ class HelpPanel extends command {
 	constructor(client) {
 		super(client, {
 			name: 'help',
-			description: ['Show Nino menu help', 'Muestra el menú de ayuda de Nino'],
-			aliases: ['h', 'ayuda', 'cmds', 'commands'],
+			description: ['Shows Nino\'s help menu', 'Muestra el menú de ayuda de Nino'],
+			aliases: ['h', 'help', 'ayuda', 'cmds', 'commands'],
 			usage: ['help (command)', 'help (Comando)'],
 			example: ['help help', 'help play'],
 			userPerms: [],
