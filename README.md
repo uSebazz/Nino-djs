@@ -1,5 +1,5 @@
 ## Nino Discord Bot
-Links 
+Links
  - https://inv.nino.fun
  - https://dc.nino.fun
 

@@ -1,3 +1,4 @@
+# Ignorando algunas cosas inecessarias
 /.env
 /node_modules
 /package-lock.json
